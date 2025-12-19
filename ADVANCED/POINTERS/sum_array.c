@@ -3,7 +3,7 @@
 #define N 4
 
 int main (void) {
-  int a[N] = {11,34,82};
+  int a[N] = {11,34,82,3};
  int  sum, *p;
   sum = 0;
 
