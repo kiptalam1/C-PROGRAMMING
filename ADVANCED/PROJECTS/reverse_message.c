@@ -15,6 +15,7 @@ int main (void) {
       counter++;
   }
 
+  
 
   printf("In reverse: ");
   reverse_message(c, counter);
