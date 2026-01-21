@@ -9,6 +9,7 @@ typedef struct Node
 
 void insert_end(node_t** root, int value);
 void insert_beginning(node_t** root, int value);
+void insert_after(node_t* node, int value);
 void deallocate(node_t** root);
 
 int main (int argc, char* argv[]) {
@@ -17,6 +18,9 @@ int main (int argc, char* argv[]) {
   insert_beginning(&root, 5);
   insert_beginning(&root, 13);
   insert_beginning(&root, 22);
+
+  insert_after(root, 42);
+  insert_after(root->next->next, 33);
 
   // using *FOR* loop to display values;
   for (node_t *curr = root; curr != NULL; curr = curr->next)
@@ -73,3 +77,12 @@ void insert_beginning(node_t** root, int value) {
   *root = new_node;
 }
 
+void insert_after(node_t* node, int value) {
+  node_t *new_node = malloc(sizeof(node_t));
+  if (new_node == NULL)
+    printf("malloc failed at insert_after\n");
+
+  new_node->x = value;
+  new_node->next = node->next;
+  node->next = new_node;
+}
