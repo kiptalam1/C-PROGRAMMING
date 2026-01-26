@@ -3,11 +3,18 @@
 
 #include <stdbool.h>
 
-void make_empty(void);
-bool is_empty(void);
-bool is_full(void);
-void push(int i);
-int pop(void);
+#define STACK_SIZE 100
+
+typedef struct {
+  int contents[STACK_SIZE];
+  int top;
+} Stack;
+
+void make_empty(Stack *s);
+bool is_empty(const Stack *s);
+bool is_full(const Stack *s);
+void push(Stack *s, int i);
+int pop(Stack *s);
 
 #endif
 
